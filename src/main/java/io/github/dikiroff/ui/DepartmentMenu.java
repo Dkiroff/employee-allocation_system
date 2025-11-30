@@ -44,7 +44,7 @@ public class DepartmentMenu {
         List<Department> departments = dao.getAllDepartments();
         System.out.println("\n--- DEPARTMENT LIST ---");
         for (Department d : departments) {
-            System.out.println(d);
+            System.out.println(d + "Budget: " + d.getAnnualBudget());
         }
     }
 
@@ -145,7 +145,7 @@ public class DepartmentMenu {
 
         if (dao.updateDepartment(dept)) {
             System.out.println("SUCCESS: Department updated.");
-            System.out.println("New Details: " + dept);
+            System.out.println("New Details: " + dept + "Budget: " + dept.getAnnualBudget());
         } else {
             System.out.println("FAILURE: Update failed.");
         }

@@ -127,13 +127,14 @@ public class WorkforceDAO {
     }
 
     public boolean updateDepartment(Department dept) {
-        String query = "UPDATE departments SET name = ?, street_address = ?, city = ?, country = ? WHERE id = ?";
+        String query = "UPDATE departments SET name = ?, street_address = ?, city = ?, country = ?, annual_budget = ? WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setString(1, dept.getName());
             pstmt.setString(2, dept.getStreetAddress());
             pstmt.setString(3, dept.getCity());
             pstmt.setString(4, dept.getCountry());
-            pstmt.setInt(5, dept.getId());
+            pstmt.setDouble(5, dept.getAnnualBudget());
+            pstmt.setInt(6, dept.getId());
 
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
